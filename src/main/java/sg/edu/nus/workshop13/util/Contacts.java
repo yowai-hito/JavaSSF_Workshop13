@@ -58,10 +58,9 @@ public class Contacts {
                         Path filePath = new File(optValuesArr[0]+ '/' + contactId).toPath();
                         Charset charset = Charset.forName("utf-8");        
                         List<String> stringList = Files.readAllLines(filePath, charset);
-                        String[] stringArray = stringList.toArray(new String[]{});
-                        cResp.setName(stringArray[0]);
-                        cResp.setEmail(stringArray[1]);
-                        cResp.setPhoneNumber(Integer.parseInt(stringArray[2]));
+                        cResp.setName(stringList.get(0));
+                        cResp.setEmail(stringList.get(1));
+                        cResp.setPhoneNumber(Integer.parseInt(stringList.get(2)));
                 }catch(IOException e){
                         logger.error(e.getMessage());
                 }
