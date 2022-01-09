@@ -21,10 +21,14 @@ public class Workshop13Application {
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(Workshop13Application.class);
 		DefaultApplicationArguments appArgs = new DefaultApplicationArguments(args);
+		// Get data directory from the program argument
 		List<String> optsval = appArgs.getOptionValues("dataDir");
+		// create the directory
 		if(optsval != null){
 			createDir((String)optsval.get(0));
 		}else{
+			// if cannot find any dataDir argument from the program
+			// args then abort the program
 			logger.warn("No data directory is provided!");
 			System.exit(1);
 		}

@@ -22,6 +22,10 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.boot.ApplicationArguments;
 
+/**
+ * Utility class to save and read contact information from 
+ * the data file that is stored on the spefici local directory
+ */
 public class Contacts {
         private static final Logger logger = LoggerFactory.getLogger(Contacts.class);
         
@@ -64,6 +68,9 @@ public class Contacts {
                         cResp.setEmail(stringList.get(1));
                         cResp.setPhoneNumber(Integer.parseInt(stringList.get(2)));
                 }catch(IOException e){
+                        // if the file is not stored or exist on the data dir
+                        // it will throw an io exception therefore catch it and return 
+                        // Not found http status code
                         logger.error(e.getMessage());
                         throw new ResponseStatusException(
                                 HttpStatus.NOT_FOUND, "Contact Not Found", e);

@@ -3,6 +3,10 @@ package sg.edu.nus.workshop13.model;
 import java.util.Random;
 import java.io.Serializable;
 
+/**
+ * Plain java obejct represent the Contact information 
+ * of the address book
+ */
 public class Contact implements Serializable {
         private static final long serialVersionUID = 1L;
         private String name;
