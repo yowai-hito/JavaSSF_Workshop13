@@ -10,4 +10,15 @@ class Workshop13ApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	public void testContact() throws Exception {
+		Contact c = new Contact();
+		c.setName("Kenneth");
+		c.setEmail("a@a.com");
+		c.setPhoneNumber(1234567);
+		// assert equals to the setter value
+        assertEquals(c.getEmail(), "a@a.com");
+	}
+
+
 }

@@ -1,6 +1,8 @@
 package sg.edu.nus.workshop13.util;
 
 import org.springframework.ui.Model;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 import sg.edu.nus.workshop13.model.Contact;
 
 import java.util.List;
@@ -63,6 +65,8 @@ public class Contacts {
                         cResp.setPhoneNumber(Integer.parseInt(stringList.get(2)));
                 }catch(IOException e){
                         logger.error(e.getMessage());
+                        throw new ResponseStatusException(
+                                HttpStatus.NOT_FOUND, "Contact Not Found", e);
                 }
                 model.addAttribute("contact", cResp);
         }
