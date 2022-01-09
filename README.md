@@ -1,7 +1,13 @@
 ## Workshop 13
 
-- Run the spring boot app using ./mvnw spring-boot:run -Dspring-boot.run.arguments=--dataDir=/opt/tmp/data
+- Run the spring boot app using the below command line
+
+```
+./mvnw spring-boot:run -Dspring-boot.run.arguments=--dataDir=/opt/tmp/data
+```
+
 - Make sure the following entry is in the pom.xml
+
 ```
 <dependency>
 	<groupId>org.springframework.boot</groupId>

@@ -3,6 +3,9 @@ package sg.edu.nus.workshop13;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import sg.edu.nus.workshop13.model.Contact;
+import org.junit.Assert.*;
+
 @SpringBootTest
 class Workshop13ApplicationTests {
 

@@ -34,7 +34,7 @@ public class AddressbookController {
         logger.info("contactId > " + contactId);
         Contacts ct = new Contacts();
         ct.getContactById(model, contactId, applicationArguments);     
-        return "showcontact";
+        return "showContact";
     }
 
     @PostMapping("/contact")
@@ -44,6 +44,6 @@ public class AddressbookController {
         logger.info("Phone Number > " + contact.getPhoneNumber());
         Contacts ct = new Contacts();
         ct.saveContact(contact, model, applicationArguments);
-        return "showcontact";
+        return "showContact";
     }
 }
