@@ -15,15 +15,20 @@ public class IOUtil {
 		= LoggerFactory.getLogger(IOUtil.class);
 	
         public static void createDir(String path){
-                try{
-                        File dir = new File(path);
-                        dir.mkdirs();
-                        String perm = "rwxrwx---";
-                        Set<PosixFilePermission> permissions 
-                                = PosixFilePermissions.fromString(perm);
-                        Files.setPosixFilePermissions(dir.toPath(), permissions);
-                }catch(IOException e){
-                        logger.error("Error creating directory", e);
-                }
+                File dir = new File(path);
+                dir.mkdirs();
+                
+                String osName = System.getProperty("os.name");
+                if(!osName.contains("Windows")){
+                        logger.info("Others -> ", osName);
+                        try{
+                                String perm = "rwxrwx---";
+                                Set<PosixFilePermission> permissions 
+                                        = PosixFilePermissions.fromString(perm);
+                                Files.setPosixFilePermissions(dir.toPath(), permissions);
+                        }catch(IOException e){
+                                logger.error("Error creating directory", e);
+                        }
+                }      
         }
 }

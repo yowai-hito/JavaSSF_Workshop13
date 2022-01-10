@@ -39,11 +39,14 @@ public class AddressbookController {
 
     @PostMapping("/contact")
     public String contactSubmit(@ModelAttribute Contact contact, Model model) {
-        logger.info("Name > " + contact.getName());
-        logger.info("Email > " + contact.getEmail());
-        logger.info("Phone Number > " + contact.getPhoneNumber());
+        long startTime = System.currentTimeMillis();
+        logger.info("111 Name > " + contact.getName());
+        logger.info("111 Email > " + contact.getEmail());
+        logger.info("111 Phone Number > " + contact.getPhoneNumber());
         Contacts ct = new Contacts();
         ct.saveContact(contact, model, applicationArguments);
+        long endTime = System.currentTimeMillis();
+        logger.info("Elapsed timing -> contactSubmit " + (endTime -startTime));
         return "showContact";
     }
 }

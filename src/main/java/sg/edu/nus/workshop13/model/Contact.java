@@ -25,6 +25,13 @@ public class Contact implements Serializable {
                 this.phoneNumber = phoneNumber;
         }
 
+        public Contact(String id, String name, String email, int phoneNumber){
+                this.id = id;
+                this.name = name;
+                this.email = email;
+                this.phoneNumber = phoneNumber;
+        }
+
         private synchronized String generateId(int numchars){
                 Random r = new Random();
                 StringBuffer sb = new StringBuffer();

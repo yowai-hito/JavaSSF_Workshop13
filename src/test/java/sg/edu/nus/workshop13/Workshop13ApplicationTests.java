@@ -20,7 +20,7 @@ class Workshop13ApplicationTests {
 		c.setEmail("a@a.com");
 		c.setPhoneNumber(1234567);
 		// assert equals to the setter value
-        assertEquals(c.getEmail(), "a@a.com");
+        	assertEquals(c.getEmail(), "a@a.com");
 	}
 
 

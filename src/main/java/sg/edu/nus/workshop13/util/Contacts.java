@@ -49,7 +49,7 @@ public class Contacts {
                         printWriter.close();
                 }
                 
-                model.addAttribute("contact", new Contact(contact.getName(), 
+                model.addAttribute("contact", new Contact(contact.getId(), contact.getName(), 
                         contact.getEmail(), 
                         contact.getPhoneNumber()));
         }
