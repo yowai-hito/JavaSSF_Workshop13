@@ -11,17 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import sg.edu.nus.workshop13.model.Contact;
-import sg.edu.nus.workshop13.util.Contacts;
 
-import org.springframework.boot.ApplicationArguments;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller
 public class AddressbookController {
     private static final Logger logger = LoggerFactory.getLogger(AddressbookController.class);
-    @Autowired
-    private ApplicationArguments applicationArguments;
 
     @GetMapping("/")
     public String contactForm(Model model) {
@@ -32,8 +28,9 @@ public class AddressbookController {
     @GetMapping("/getContact/{contactId}")
     public String getContact(Model model, @PathVariable(value="contactId") String contactId) {
         logger.info("contactId > " + contactId);
-        Contacts ct = new Contacts();
-        ct.getContactById(model, contactId, applicationArguments);     
+        
+
+        ct.getContactById(model, contactId);     
         return "showContact";
     }
 
@@ -43,8 +40,8 @@ public class AddressbookController {
         logger.info("111 Name > " + contact.getName());
         logger.info("111 Email > " + contact.getEmail());
         logger.info("111 Phone Number > " + contact.getPhoneNumber());
-        Contacts ct = new Contacts();
-        ct.saveContact(contact, model, applicationArguments);
+        
+
         long endTime = System.currentTimeMillis();
         logger.info("Elapsed timing -> contactSubmit " + (endTime -startTime));
         return "showContact";
